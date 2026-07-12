@@ -1,0 +1,512 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --black: #050407;
+  --blue: #1a2fff;
+  --gold: #d4a017;
+  --gold-bright: #f5c842;
+  --white: #e8e4dc;
+  --silver: #a8aab0;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--black);
+  font-family: "Georgia", serif;
+  color: var(--white);
+  overflow-x: hidden;
+}
+body {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 38%, rgba(212, 160, 23, 0.06), transparent 70%),
+    radial-gradient(ellipse 120% 90% at 50% 110%, rgba(10, 10, 58, 0.5), transparent 60%),
+    var(--black);
+}
+button {
+  font-family: inherit;
+}
+
+/* ── nav (паттерн ninhaza / page — как в keyhunt) ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.6rem;
+  pointer-events: none;
+}
+nav a {
+  pointer-events: all;
+  text-decoration: none;
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
+  font-size: 0.75rem;
+  color: rgba(212, 160, 23, 0.7);
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: var(--gold-bright);
+}
+nav .crumb {
+  color: var(--gold);
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
+  font-size: 0.75rem;
+  text-shadow: 0 0 14px rgba(212, 160, 23, 0.35);
+}
+.back-btn {
+  pointer-events: all;
+  text-decoration: none;
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.back-btn:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 16px rgba(212, 160, 23, 0.25);
+}
+.back-btn img {
+  width: 18px;
+  height: 18px;
+  filter: invert(65%) sepia(54%) saturate(1226%) hue-rotate(357deg)
+    brightness(93%) contrast(93%);
+  transition: filter 0.3s;
+}
+.back-btn:hover img {
+  filter: invert(72%) sepia(60%) saturate(1500%) hue-rotate(357deg)
+    brightness(105%) contrast(95%);
+}
+
+/* ── сцены ── */
+main {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 5.5rem 1.2rem 3rem;
+}
+.stage {
+  display: none;
+  width: 100%;
+  max-width: 1100px;
+  min-width: 0;
+  text-align: center;
+  animation: stage-in 1s var(--ease-soft) both;
+}
+.stage.on {
+  display: block;
+}
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+h1 {
+  font-weight: 400;
+  font-size: clamp(1.7rem, 4.5vw, 3rem);
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
+  color: var(--white);
+  text-shadow: 0 0 24px rgba(212, 160, 23, 0.25);
+}
+.sub {
+  margin-top: 0.9rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(168, 170, 176, 0.55);
+}
+
+.pill-btn {
+  margin-top: 2.4rem;
+  background: none;
+  border: 1px solid rgba(212, 160, 23, 0.4);
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  padding: 0.8rem 2.4rem;
+  cursor: pointer;
+  transition:
+    border-color 0.3s,
+    color 0.3s,
+    box-shadow 0.3s;
+}
+.pill-btn:hover,
+.pill-btn:focus-visible {
+  border-color: var(--gold-bright);
+  color: var(--white);
+  box-shadow: 0 0 18px rgba(212, 160, 23, 0.3);
+  outline: none;
+}
+.pill-btn.small {
+  margin-top: 0;
+  padding: 0 1.6rem;
+  height: 44px;
+}
+
+/* ── 1 · правила ── */
+#intro-img {
+  margin-top: 2rem;
+  width: min(280px, 70vw);
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+.rules {
+  margin: 2rem auto 0;
+  max-width: 480px;
+  font-size: 0.82rem;
+  line-height: 1.85;
+  font-style: italic;
+  color: rgba(232, 228, 220, 0.78);
+}
+.rules .oath {
+  display: block;
+  margin-top: 1.3rem;
+  font-style: normal;
+  font-size: 0.6rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.rules .never {
+  display: block;
+  margin-top: 0.7rem;
+  font-style: normal;
+  font-size: 0.5rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(168, 170, 176, 0.4);
+}
+
+/* ── 2 · мастерская ── */
+#studio.stage {
+  max-width: 1200px;
+}
+
+/* верхняя панель */
+#bench {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.9rem;
+}
+.bench-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.bench-label {
+  font-size: 0.52rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(168, 170, 176, 0.55);
+}
+#machines {
+  display: flex;
+  gap: 0.5rem;
+}
+.m-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  background: rgba(5, 4, 7, 0.6);
+  color: rgba(212, 160, 23, 0.65);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition:
+    border-color 0.3s,
+    color 0.3s,
+    box-shadow 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.m-btn:hover,
+.m-btn:focus-visible {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+  outline: none;
+}
+.m-btn[aria-pressed="true"] {
+  border-color: var(--gold-bright);
+  color: var(--gold-bright);
+  box-shadow: 0 0 14px rgba(245, 200, 66, 0.3);
+}
+
+/* переключатель вертеть / красить */
+#mode {
+  display: flex;
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(5, 4, 7, 0.6);
+}
+.mode-btn {
+  min-width: 84px;
+  height: 42px;
+  border: none;
+  background: none;
+  color: rgba(212, 160, 23, 0.6);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  padding: 0 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.mode-btn:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: -3px;
+}
+.mode-btn[aria-pressed="true"] {
+  background: rgba(212, 160, 23, 0.14);
+  color: var(--gold-bright);
+  text-shadow: 0 0 10px rgba(245, 200, 66, 0.4);
+}
+
+/* сцена */
+#canvas-shell {
+  position: relative;
+  border: 1px solid rgba(212, 160, 23, 0.25);
+  border-radius: 6px;
+  height: calc(100svh - 380px);
+  min-height: 340px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 45%, rgba(212, 160, 23, 0.05), transparent 70%),
+    #0b0910;
+}
+#gl {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none; /* жесты уходят в игру, а не в скролл страницы */
+  cursor: grab;
+}
+#gl:active {
+  cursor: grabbing;
+}
+#gl.spray {
+  cursor: crosshair;
+}
+#hint {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8rem;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 0.52rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(168, 170, 176, 0.45);
+  pointer-events: none;
+}
+#loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 4, 7, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  font-size: 0.62rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-shadow: 0 0 14px rgba(212, 160, 23, 0.35);
+  animation: breathe 3.2s ease-in-out infinite;
+}
+#loading.off {
+  display: none;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* палитра — свотчи в стиле плиток */
+#palette {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.swatch {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  background: var(--c);
+  cursor: pointer;
+  transition:
+    border-color 0.45s var(--ease-soft),
+    box-shadow 0.45s var(--ease-soft),
+    transform 0.45s var(--ease-soft);
+  -webkit-tap-highlight-color: transparent;
+}
+.swatch:hover,
+.swatch:focus-visible {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  outline: none;
+}
+.swatch[aria-pressed="true"] {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 16px rgba(245, 200, 66, 0.35);
+  transform: translateY(-3px);
+}
+
+/* нижняя панель */
+#bench-bottom {
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+#brushes {
+  display: flex;
+  gap: 0.5rem;
+}
+.b-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 160, 23, 0.35);
+  background: rgba(5, 4, 7, 0.6);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  -webkit-tap-highlight-color: transparent;
+}
+.b-btn i {
+  width: var(--d);
+  height: var(--d);
+  border-radius: 50%;
+  background: rgba(212, 160, 23, 0.65);
+  transition: background 0.3s;
+}
+.b-btn:hover,
+.b-btn:focus-visible {
+  border-color: var(--gold);
+  outline: none;
+}
+.b-btn[aria-pressed="true"] {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 14px rgba(245, 200, 66, 0.3);
+}
+.b-btn[aria-pressed="true"] i {
+  background: var(--gold-bright);
+}
+.bench-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* ── мобильная версия ── */
+@media (max-width: 720px) {
+  nav {
+    padding: 1rem 1rem;
+  }
+  .back-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .back-btn img {
+    width: 16px;
+    height: 16px;
+  }
+  main {
+    padding: 5rem 0.8rem 2.4rem;
+  }
+  h1 {
+    letter-spacing: 0.25em;
+  }
+  .sub {
+    letter-spacing: 0.3em;
+    line-height: 1.8;
+    padding: 0 1.2rem;
+  }
+  .rules {
+    padding: 0 0.6rem;
+  }
+  #bench {
+    justify-content: center;
+    gap: 0.7rem;
+  }
+  #canvas-shell {
+    height: calc(100svh - 420px);
+    min-height: 300px;
+  }
+  .m-btn,
+  .b-btn,
+  .swatch {
+    width: 42px;
+    height: 42px;
+  }
+  .mode-btn {
+    min-width: 58px;
+    height: 42px;
+    padding: 0 0.7rem;
+    letter-spacing: 0.22em;
+  }
+  #bench-bottom {
+    justify-content: center;
+  }
+  #hint {
+    letter-spacing: 0.25em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #loading {
+    animation: none;
+  }
+  .stage {
+    animation-duration: 0.01s;
+  }
+  .swatch,
+  .swatch:hover,
+  .swatch[aria-pressed="true"] {
+    transform: none;
+  }
+}

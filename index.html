@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninhaza</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- SPLASH -->
+    <div id="splash">
+      <div class="title-wrap">
+        <!-- ✦ NEW: вернулся главный заголовок — якорь композиции -->
+        <div class="title-line"><span class="t-main">ninhaza</span></div>
+        <div class="title-line"><span class="t-sub">click to awaken</span></div>
+      </div>
+    </div>
+
+    <!-- CANVAS -->
+    <canvas id="c"></canvas>
+    <canvas id="golden"></canvas>
+
+    <button id="sound-btn" class="sound-btn" title="toggle sound">
+      <img
+        id="sound-icon"
+        src="/treble.svg"
+        alt="sound on"
+        width="28"
+        height="38"
+      />
+    </button>
+
+    <!-- ✦ NEW: вход в play room прямо с заглавного экрана -->
+    <div id="nav-links">
+      <a id="about-link" href="/about.html">about</a>
+      <a id="pr-link" href="/playroom.html">play room</a>
+    </div>
+
+    <!-- SHOCKWAVE OVERLAY -->
+    <div id="shockwave"></div>
+
+    <!-- GALLERY -->
+    <div id="gallery">
+      <nav class="g-nav">
+        <a class="g-logo" href="/index.html">ninhaza</a>
+        <div class="g-nav-right">
+          <!-- ✦ NEW: ссылка на игральную комнату -->
+          <a id="playroom-link" href="/playroom.html">play room</a>
+          <button id="back-btn"><img src="/back-icon.svg" alt="back" /></button>
+        </div>
+      </nav>
+      <div class="g-hero"><h2>Works</h2></div>
+      <div class="g-grid" id="g-grid"></div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox">
+      <button id="lb-close">✕</button>
+      <button id="lb-prev" class="lb-arrow" aria-label="previous">
+        <img src="/back-icon.svg" alt="" />
+      </button>
+      <button id="lb-next" class="lb-arrow lb-arrow-next" aria-label="next">
+        <img src="/back-icon.svg" alt="" />
+      </button>
+      <div class="lb-content">
+        <img id="lb-img" src="" alt="" />
+        <p id="lb-counter"></p>
+        <div class="lb-info">
+          <p id="lb-title"></p>
+          <p id="lb-meta"></p>
+          <p id="lb-desc"></p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

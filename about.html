@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninhaza — about</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="/src/about.css" />
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="/index.html">ninhaza</a>
+      <div class="nav-actions">
+        <a class="back-btn" href="/index.html"
+          ><img src="/back-icon.svg" alt="back"
+        /></a>
+        <button id="sound-btn" class="sound-btn" title="toggle sound">
+          <img
+            id="sound-icon"
+            src="/treble.svg"
+            alt="sound on"
+            width="28"
+            height="38"
+          />
+        </button>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <h1>About</h1>
+      <p class="role">painter · digital artist</p>
+      <p class="location">based in Paris, France</p>
+
+      <div class="portrait-row">
+        <img
+          class="portrait"
+          src="/images/about-photo.webp"
+          alt="Anastasia (Nia) Puhach"
+          onerror="this.style.display = 'none'"
+        />
+        <div class="bio">
+          <p>
+            <em>Anastasia (Nia) Puhach</em> was born in 2000 in Kharkiv,
+            Ukraine. A self-taught artist, she began painting independently
+            while pursuing her studies at the Kharkiv University of Technology.
+            Merging her digital background and experience in game design with
+            her fascination for sacred architecture and gothic symbolism, Nia
+            creates immersive visual narratives that inhabit the space between
+            the physical world and inner realms of dream, memory, and myth.
+          </p>
+          <p>
+            Her signature motif — creatures formed from hands — serves as a
+            bridge between visible reality and invisible emotions. These
+            hand-beings often echo religious iconography, speaking to the
+            spiritual duality of fear and transcendence.
+          </p>
+          <p>
+            "I try to express my feelings in my paintings and tell different
+            stories about the passage of time, exploring the contrast between
+            the forces of light and darkness as well as the transformation of
+            the body."
+          </p>
+        </div>
+      </div>
+
+      <footer class="contact-section">
+        <h2>contact</h2>
+        <div class="contacts">
+          <a
+            href="https://www.instagram.com/ninhaza?igsh=emg5dXlrc3FybHlp"
+            target="_blank"
+            >instagram</a
+          >
+          <a href="mailto:artniapuhach@gmail.com">email</a>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/about-audio.js"></script>
+  </body>
+</html>

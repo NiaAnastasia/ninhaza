@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninhaza · the atelier</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preload" as="image" href="/games/atelier/atelier-intro.webp" />
+    <link rel="stylesheet" href="/src/atelier.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/index.html">ninhaza</a>
+      <span class="crumb">atelier</span>
+      <a class="back-btn" href="/playroom.html" aria-label="back to play room">
+        <img src="/back-icon.svg" alt="back" />
+      </a>
+    </nav>
+
+    <main>
+      <!-- 1 · правила -->
+      <section id="brief" class="stage on">
+        <h1>the atelier</h1>
+        <p class="sub">paint the machines</p>
+        <img
+          id="intro-img"
+          src="/games/atelier/atelier-intro.webp"
+          alt="one of the machines, freshly painted"
+        />
+        <p class="rules">
+          three machines left the sculptor's hands unpainted. choose one, turn
+          it to the light, and hold the spray — colour settles soft at the
+          edges, like dust on warm metal.
+          <span class="oath">no undo · water washes everything</span>
+          <span class="never">the machines do not mind</span>
+        </p>
+        <button id="begin-btn" class="pill-btn">pick up the can</button>
+      </section>
+
+      <!-- 2 · мастерская -->
+      <section id="studio" class="stage">
+        <!-- верхняя панель: выбор машины · режим -->
+        <div id="bench">
+          <div class="bench-left">
+            <span class="bench-label">machine</span>
+            <div id="machines" role="group" aria-label="choose a machine">
+              <button class="m-btn" data-i="0" aria-pressed="true">i</button>
+              <button class="m-btn" data-i="1" aria-pressed="false">ii</button>
+              <button class="m-btn" data-i="2" aria-pressed="false">iii</button>
+            </div>
+          </div>
+          <div id="mode" role="group" aria-label="mode">
+            <button class="mode-btn" data-mode="turn" aria-pressed="true">
+              turn
+            </button>
+            <button class="mode-btn" data-mode="spray" aria-pressed="false">
+              spray
+            </button>
+            <button class="mode-btn" data-mode="fill" aria-pressed="false">
+              fill
+            </button>
+          </div>
+        </div>
+
+        <!-- сцена -->
+        <div id="canvas-shell">
+          <canvas id="gl"></canvas>
+          <div id="hint"></div>
+          <div id="loading">loading the machine…</div>
+        </div>
+
+        <!-- палитра (свотчи строит atelier.js) -->
+        <div id="palette" role="group" aria-label="choose a colour"></div>
+
+        <!-- нижняя панель: размер кисти · действия -->
+        <div id="bench-bottom">
+          <div id="brushes" role="group" aria-label="spray size">
+            <button class="b-btn" data-s="0" aria-pressed="false" aria-label="fine spray">
+              <i style="--d: 6px"></i>
+            </button>
+            <button class="b-btn" data-s="1" aria-pressed="true" aria-label="soft spray">
+              <i style="--d: 11px"></i>
+            </button>
+            <button class="b-btn" data-s="2" aria-pressed="false" aria-label="wide spray">
+              <i style="--d: 17px"></i>
+            </button>
+          </div>
+          <div class="bench-actions">
+            <button id="wash-btn" class="pill-btn small">wash</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/atelier.js"></script>
+  </body>
+</html>

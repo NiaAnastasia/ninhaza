@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninhaza · key hunt</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preload" as="image" href="/games/key-hunt/key-hunt-bg.webp" />
+    <link rel="stylesheet" href="/src/keyhunt.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/index.html">ninhaza</a>
+      <span class="crumb">key hunt</span>
+      <a class="back-btn" href="/playroom.html" aria-label="back to play room">
+        <img src="/back-icon.svg" alt="back" />
+      </a>
+    </nav>
+
+    <main>
+      <!-- 1 · правила -->
+      <section id="brief" class="stage on">
+        <h1>the key hunt</h1>
+        <p class="sub">one key hides in the painting</p>
+        <p class="rules">
+          choose a key. find it in the painting before the timer burns out.
+          every hunt won makes the next one darker — the keys grow smaller,
+          quieter, closer to the paint.
+          <span class="oath">seven flawless hunts in a row · the room whispers the password</span>
+          <span class="never">it has never happened</span>
+        </p>
+        <button id="begin-btn" class="pill-btn">choose your key</button>
+      </section>
+
+      <!-- 2 · выбор ключа -->
+      <section id="choose" class="stage">
+        <h1>choose</h1>
+        <p class="sub">which key will you hunt</p>
+        <div id="picks"></div>
+      </section>
+
+      <!-- 3 · охота -->
+      <section id="hunt" class="stage">
+        <div id="hud">
+          <div class="hud-left">
+            <div id="hud-key"></div>
+            <div class="hud-label">find<br />this key</div>
+          </div>
+          <div id="hud-streak">hunt i of vii</div>
+          <div class="hud-right">
+            <div id="hud-time">60</div>
+            <div class="hud-label">seconds</div>
+          </div>
+        </div>
+        <div id="timebar"><i></i></div>
+        <div id="field-shell">
+          <div id="field-wrap">
+            <div id="sizer"><div id="field"></div></div>
+          </div>
+          <div class="zoom" aria-label="zoom">
+            <button id="z-out" class="z-btn" aria-label="zoom out">−</button>
+            <button id="z-in" class="z-btn" aria-label="zoom in">+</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="penalty">−2 seconds</div>
+
+    <!-- вуаль результата -->
+    <div id="veil">
+      <div id="panel">
+        <div class="fog"></div>
+        <div id="p-roman"></div>
+        <p id="p-name"></p>
+        <p id="p-text"></p>
+        <button id="p-btn" class="pill-btn"></button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/keyhunt.js"></script>
+  </body>
+</html>

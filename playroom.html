@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ninhaza · play room</title>
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="stylesheet" href="/src/playroom.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="/index.html">ninhaza</a>
+      <span class="crumb">play room</span>
+      <a class="back-btn" href="/index.html" aria-label="back">
+        <img src="/back-icon.svg" alt="back" />
+      </a>
+    </nav>
+
+    <main>
+      <!-- ✦ NEW: 0 · выбор игры -->
+      <section id="hub" class="stage on">
+        <h1>the play room</h1>
+        <p class="sub">three doors · choose your game</p>
+        <div class="spreads">
+          <button class="hub-tile" id="hub-tarot">
+            <div
+              class="tile-icon"
+              style="--m: url('/tarot/fortune-icon.svg')"
+            ></div>
+            <strong>the reading</strong>
+            <span>22 arcana · one thread</span>
+          </button>
+          <a class="hub-tile" href="/keyhunt.html">
+            <div
+              class="tile-icon"
+              style="--m: url(&quot;/games/key-hunt/eye-icon.svg&quot;)"
+            ></div>
+            <strong>the key hunt</strong>
+            <span>seven wins · one password</span>
+          </a>
+          <a class="hub-tile" href="/atelier.html">
+            <div
+              class="tile-icon"
+              style="--m: url(&quot;/games/atelier/palette-icon.svg&quot;)"
+            ></div>
+            <strong>the atelier</strong>
+            <span>three machines · one spray can</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 1 · выбор расклада -->
+      <section id="intro" class="stage">
+        <h1>the reading</h1>
+        <p class="sub">the deck is listening · choose your spread</p>
+        <div class="spreads">
+          <button class="spread-btn" data-spread="1">
+            <strong>single card</strong>
+            <span>one question · one answer</span>
+          </button>
+          <button class="spread-btn" data-spread="3">
+            <strong>past · present · future</strong>
+            <span>three cards · one thread</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 2 · веер, выбор карт -->
+      <section id="pick" class="stage">
+        <h1>draw</h1>
+        <p id="pick-hint"></p>
+        <div id="fan"></div>
+        <button id="reveal-btn">reveal</button>
+      </section>
+
+      <!-- 3 · расклад и толкование -->
+      <section id="reading" class="stage">
+        <div id="slots"></div>
+        <p id="reading-hint">tap a card to turn it</p>
+        <button id="again">new reading</button>
+      </section>
+    </main>
+
+    <!-- ✦ переключение хаб ↔ таро (tarot.js не трогаем) -->
+    <script>
+      (() => {
+        const hub = document.getElementById("hub");
+        const intro = document.getElementById("intro");
+        const crumb = document.querySelector("nav .crumb");
+        const backBtn = document.querySelector("nav .back-btn");
+        const tarotStages = ["intro", "pick", "reading"].map((id) =>
+          document.getElementById(id),
+        );
+
+        function toHub() {
+          tarotStages.forEach((s) => s.classList.remove("on"));
+          hub.classList.add("on");
+          crumb.textContent = "play room";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        document.getElementById("hub-tarot").addEventListener("click", () => {
+          hub.classList.remove("on");
+          intro.classList.add("on");
+          crumb.textContent = "tarot";
+        });
+        // back: из таро → в play room; из play room → на главную
+        backBtn.addEventListener("click", (e) => {
+          if (!hub.classList.contains("on")) {
+            e.preventDefault();
+            toHub();
+          }
+        });
+      })();
+    </script>
+    <script type="module" src="/src/tarot.js"></script>
+  </body>
+</html>

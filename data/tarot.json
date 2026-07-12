@@ -1,0 +1,200 @@
+[
+  {
+    "id": "the-fool",
+    "num": 0,
+    "roman": "0",
+    "name": "the fool",
+    "file": "/tarot/00-the-fool.webp",
+    "upright": "a step into the unseen. beginnings, innocence, the courage to leap before the ground is certain. the path opens because you walk it.",
+    "reversed": "hesitation at the edge — or a leap taken blind. recklessness disguised as freedom, fear disguised as prudence."
+  },
+  {
+    "id": "the-magician",
+    "num": 1,
+    "roman": "I",
+    "name": "the magician",
+    "file": null,
+    "upright": "all the tools are already on the table. will, focus, manifestation — the moment desire becomes act.",
+    "reversed": "scattered intent, tricks of the hand. power used to impress rather than create; check who is holding the wand."
+  },
+  {
+    "id": "the-high-priestess",
+    "num": 2,
+    "roman": "II",
+    "name": "the high priestess",
+    "file": null,
+    "upright": "the answer is behind the veil, not in the noise. intuition, silence, knowledge that arrives without words.",
+    "reversed": "the inner voice muted by other people's certainty. secrets kept too long, or a truth you refuse to hear from yourself."
+  },
+  {
+    "id": "the-empress",
+    "num": 3,
+    "roman": "III",
+    "name": "the empress",
+    "file": "/tarot/03-the-empress.webp",
+    "upright": "abundance that grows on its own once tended. creation, sensuality, care — the garden answers the gardener.",
+    "reversed": "creative drought, smothering care, neglect of the body. the soil asks to be left fallow before it blooms again."
+  },
+  {
+    "id": "the-emperor",
+    "num": 4,
+    "roman": "IV",
+    "name": "the emperor",
+    "file": null,
+    "upright": "structure holds the wild in place. authority, order, boundaries drawn with a steady hand.",
+    "reversed": "control hardened into rigidity, or a throne no one is sitting on. rules that outlived their reason."
+  },
+  {
+    "id": "the-hierophant",
+    "num": 5,
+    "roman": "V",
+    "name": "the hierophant",
+    "file": null,
+    "upright": "tradition as a keeper of meaning. teachers, rituals, the comfort of a path already walked by many.",
+    "reversed": "dogma over truth. the ritual has emptied out — time to write your own liturgy."
+  },
+  {
+    "id": "the-lovers",
+    "num": 6,
+    "roman": "VI",
+    "name": "the lovers",
+    "file": "/tarot/06-the-lovers.webp",
+    "upright": "a choice that defines you more than it defines the outcome. union, alignment, two flames sharing one air.",
+    "reversed": "disharmony, avoidance of the choice itself. values pulling in opposite directions under one roof."
+  },
+  {
+    "id": "the-chariot",
+    "num": 7,
+    "roman": "VII",
+    "name": "the chariot",
+    "file": "/tarot/07-the-chariot.webp",
+    "upright": "victory through held tension. opposing forces harnessed, not silenced — motion by pure will.",
+    "reversed": "the reins slipping, direction lost to speed. ambition dragging the driver instead of carrying them."
+  },
+  {
+    "id": "strength",
+    "num": 8,
+    "roman": "VIII",
+    "name": "strength",
+    "file": null,
+    "upright": "the lion is calmed, not caged. quiet courage, patience, power that does not need to raise its voice.",
+    "reversed": "self-doubt gnawing at resolve, or force where gentleness was asked. the beast senses fear before anything else."
+  },
+  {
+    "id": "the-hermit",
+    "num": 9,
+    "roman": "IX",
+    "name": "the hermit",
+    "file": null,
+    "upright": "withdrawal as a form of seeking. solitude, the single lantern, wisdom found off the map.",
+    "reversed": "isolation past its purpose. the lantern turned inward so long the road has grown over."
+  },
+  {
+    "id": "wheel-of-fortune",
+    "num": 10,
+    "roman": "X",
+    "name": "wheel of fortune",
+    "file": null,
+    "upright": "the turn you did not order but needed. cycles, fate, luck arriving through a door you forgot to lock.",
+    "reversed": "resisting the turn of the wheel. a cycle repeating because its lesson is still unpaid."
+  },
+  {
+    "id": "justice",
+    "num": 11,
+    "roman": "XI",
+    "name": "justice",
+    "file": null,
+    "upright": "cause meets consequence with clean hands. truth, fairness, the weight of a decision measured exactly.",
+    "reversed": "the scales tipped by what goes unsaid. accountability avoided — the debt does not disappear, it accrues."
+  },
+  {
+    "id": "the-hanged-man",
+    "num": 12,
+    "roman": "XII",
+    "name": "the hanged man",
+    "file": null,
+    "upright": "surrender as strategy. the pause, the inverted view, wisdom that only appears upside down.",
+    "reversed": "stalling dressed as patience. hanging on out of habit — the sacrifice stopped meaning anything."
+  },
+  {
+    "id": "death",
+    "num": 13,
+    "roman": "XIII",
+    "name": "death",
+    "file": null,
+    "upright": "an ending that clears the ground. transformation, release, the necessary closing of a door.",
+    "reversed": "clinging to what has already ended. decay held in place by refusal — let the season change."
+  },
+  {
+    "id": "temperance",
+    "num": 14,
+    "roman": "XIV",
+    "name": "temperance",
+    "file": null,
+    "upright": "two cups, one continuous pour. balance, patience, alchemy of opposites into something drinkable.",
+    "reversed": "excess in one vessel, drought in the other. the mixture separating — return to the middle path."
+  },
+  {
+    "id": "the-devil",
+    "num": 15,
+    "roman": "XV",
+    "name": "the devil",
+    "file": "/tarot/15-the-devil.webp",
+    "upright": "the chain is loose enough to lift off. bondage, desire, shadows you keep because they keep you warm.",
+    "reversed": "the first tug against the chain. awareness of the trap — the beginning of walking out of it."
+  },
+  {
+    "id": "the-tower",
+    "num": 16,
+    "roman": "XVI",
+    "name": "the tower",
+    "file": null,
+    "upright": "the lightning does in a second what doubt could not do in years. collapse of the false, sudden clarity.",
+    "reversed": "a slow-motion tower, dismantled brick by brick — or disaster narrowly delayed. the foundation still asks its question."
+  },
+  {
+    "id": "the-star",
+    "num": 17,
+    "roman": "XVII",
+    "name": "the star",
+    "file": null,
+    "upright": "after the tower, the open sky. hope, healing, water poured back into the dark earth.",
+    "reversed": "faith running thin, the sky overcast. the star is still there — it is the looking up that lapsed."
+  },
+  {
+    "id": "the-moon",
+    "num": 18,
+    "roman": "XVIII",
+    "name": "the moon",
+    "file": null,
+    "upright": "the path lit only by reflection. dreams, illusion, instinct — not everything howling is a threat.",
+    "reversed": "fog beginning to lift, fears revealed as shapes of ordinary things. confusion releasing its grip."
+  },
+  {
+    "id": "the-sun",
+    "num": 19,
+    "roman": "XIX",
+    "name": "the sun",
+    "file": null,
+    "upright": "warmth without condition. clarity, vitality, joy that does not need an argument.",
+    "reversed": "light dimmed by a passing cloud — delayed success, joy postponed by overthinking. the sun has not moved."
+  },
+  {
+    "id": "judgement",
+    "num": 20,
+    "roman": "XX",
+    "name": "judgement",
+    "file": null,
+    "upright": "the call that wakes what was buried. reckoning, forgiveness, rising to a truer version of the self.",
+    "reversed": "the trumpet heard and ignored. self-judgement so loud it drowns the actual call."
+  },
+  {
+    "id": "the-world",
+    "num": 21,
+    "roman": "XXI",
+    "name": "the world",
+    "file": null,
+    "upright": "the circle closes and holds. completion, integration, the dance at the end of the long road.",
+    "reversed": "a cycle almost finished, one thread hanging. seek the missing piece before beginning the next round."
+  }
+]
