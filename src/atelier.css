@@ -85,6 +85,7 @@ nav .crumb {
 .back-btn img {
   width: 18px;
   height: 18px;
+  transform: rotate(90deg);
   filter: invert(65%) sepia(54%) saturate(1226%) hue-rotate(357deg)
     brightness(93%) contrast(93%);
   transition: filter 0.3s;

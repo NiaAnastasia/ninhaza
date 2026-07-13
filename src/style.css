@@ -22,10 +22,7 @@ body {
   overflow: hidden;
   background: var(--black);
   font-family: "Georgia", serif;
-    cursor: url('/cursor.cur') 2 2,
-        url('/cursor.webp') 2 2,
-        url('/cursor.png') 2 2,
-        auto;
+  cursor: url('/cursor.png') 2 2, auto;
 }
 
 /* ── CURSOR ── */
@@ -245,6 +242,7 @@ body::after {
 #back-btn img {
   width: 18px;
   height: 18px;
+  transform: rotate(90deg);
   filter: invert(65%) sepia(54%) saturate(1226%) hue-rotate(357deg) brightness(93%) contrast(93%);
   transition: filter 0.3s;
 }
@@ -450,11 +448,12 @@ body::after {
 #lightbox .lb-arrow img {
   width: 16px;
   height: 16px;
+  transform: rotate(90deg);
   filter: invert(65%) sepia(54%) saturate(1226%) hue-rotate(357deg) brightness(93%) contrast(93%);
 }
 #lb-prev { left: 1.5rem; }
 #lb-next { right: 1.5rem; }
-#lightbox .lb-arrow-next img { transform: scaleX(-1); }  /* перевёрнутая иконка back */
+#lightbox .lb-arrow-next img { transform: scaleX(-1) rotate(90deg); }  /* перевёрнутая иконка back */
 .lb-arrow:hover {
   border-color: var(--gold);
   box-shadow: 0 0 16px rgba(212, 160, 23, 0.25);
@@ -463,7 +462,7 @@ body::after {
   filter: invert(72%) sepia(60%) saturate(1500%) hue-rotate(357deg) brightness(105%) contrast(95%);
 }
 #lightbox .lb-arrow-next:hover img {
-  transform: scaleX(-1);
+  transform: scaleX(-1) rotate(90deg);
 }
 #lb-counter {
   margin-top: 1rem;

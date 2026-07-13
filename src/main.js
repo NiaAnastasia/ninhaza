@@ -1723,20 +1723,15 @@ const grid = document.getElementById("g-grid");
 let published = [];   // ✦ NEW: список для навигации
 let lbIndex = 0;
 
-fetch("/data/works.json")
-  .then((r) => r.json())
-  .then((works) => {
-    published = works.filter((w) => w.published);
-    published.forEach((w, i) => {
-      const div = document.createElement("div");
-      div.className = "g-item";
-      div.innerHTML = `<img src="${w.src}" alt="${w.title}" loading="lazy">
-        <div class="g-item-over"><span>${w.title}</span></div>`;
-      div.addEventListener("click", () => openLightbox(i));
-      grid.appendChild(div);
-    });
-  })
-  .catch((err) => console.error("Failed to load works.json:", err));
+published = works.filter((w) => w.published);
+published.forEach((w, i) => {
+  const div = document.createElement("div");
+  div.className = "g-item";
+  div.innerHTML = `<img src="${w.src}" alt="${w.title}" loading="lazy">
+    <div class="g-item-over"><span>${w.title}</span></div>`;
+  div.addEventListener("click", () => openLightbox(i));
+  grid.appendChild(div);
+});
 
 // ── LIGHTBOX ──────────────────────────────────────────────────
 function renderWork(work) {
