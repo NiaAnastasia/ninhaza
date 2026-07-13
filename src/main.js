@@ -243,6 +243,11 @@ const bloomPass = new UnrealBloomPass(
   0.3, // radius — мягкость ореола
   0.93, // threshold — светятся только самые яркие точки
 );
+if (IS_MOBILE) {
+  bloomPass.strength = 0.1;
+  bloomPass.radius = 0.25;
+  bloomPass.threshold = 0.96;
+}
 composer.addPass(bloomPass);
 
 window.addEventListener("resize", () => {
