@@ -225,7 +225,7 @@ h1 {
 }
 .pick .glyph {
   width: 62%;
-  height: 62%;
+  aspect-ratio: 1;
   background: var(--gold);
   -webkit-mask: var(--m) center / contain no-repeat;
   mask: var(--m) center / contain no-repeat;

@@ -1,3 +1,4 @@
+const IS_MOBILE = matchMedia("(pointer: coarse)").matches;
 // ── ninhaza · the atelier ────────────────────────────────────
 // Покраска вершинными цветами: у скульптов из Nomad нет UV-развёрток,
 // поэтому «краска» пишется прямо в color-атрибут геометрии
@@ -81,13 +82,13 @@ let started = false;
 // ── рендерер · сцена · камера ────────────────────────────────
 let renderer;
 try {
-  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: !IS_MOBILE, alpha: true });
 } catch {
   loadEl.textContent = "this room needs webgl · try another browser";
   loadEl.classList.remove("off");
   throw new Error("webgl unavailable");
 }
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, IS_MOBILE ? 1.5 : 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.78; // приглушено: модели почти белые, легко пересветить
 

@@ -10,6 +10,9 @@ import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import gsap from "gsap";
 
+const IS_MOBILE = matchMedia("(pointer: coarse)").matches;
+
+
 // ── GOLDEN RATIO BACKGROUND (vanilla canvas) ─────────────────
 const goldenCanvas = document.getElementById("golden");
 const gCtx = goldenCanvas.getContext("2d");
@@ -198,10 +201,10 @@ document.addEventListener("mousemove", (e) => {
 const canvas = document.getElementById("c");
 const renderer = new THREE.WebGLRenderer({
   canvas,
-  antialias: true,
-  alpha: false, // тени теперь внутри 3D-сцены, прозрачность не нужна
+  antialias: !IS_MOBILE,
+  alpha: false,
 });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setPixelRatio(Math.min(devicePixelRatio, IS_MOBILE ? 1.5 : 2));
 renderer.setSize(innerWidth, innerHeight);
 renderer.setClearColor(0x050407, 1);
 renderer.shadowMap.enabled = true;
@@ -1852,8 +1855,8 @@ function tick() {
   pGeo.attributes.position.needsUpdate = true;
 
   controls.update();
-  // ✦ FIX: рендерим через composer — с bloom
-  composer.render();
+  if (IS_MOBILE) renderer.render(scene, camera);
+  else composer.render();
 }
 tick();
 
