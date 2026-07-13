@@ -235,9 +235,10 @@ gsap.to(camera.position, {
 
 // ── POSTPROCESSING: BLOOM ✦ NEW ─────────────────────────────
 const composer = new EffectComposer(renderer);
+if (IS_MOBILE) composer.setPixelRatio(1);
 composer.addPass(new RenderPass(scene, camera));
 const bloomPass = new UnrealBloomPass(
-  new THREE.Vector2(innerWidth, innerHeight),
+  new THREE.Vector2(innerWidth / (IS_MOBILE ? 2 : 1), innerHeight / (IS_MOBILE ? 2 : 1)),
   0.17, // strength — сила свечения (приглушено)
   0.3, // radius — мягкость ореола
   0.93, // threshold — светятся только самые яркие точки
@@ -1080,7 +1081,7 @@ function finishExplode(mesh) {
 
 // облачко мелких частиц на месте растворяющейся тени
 function dissolveParticles(mesh) {
-  const count = 34;
+  const count = IS_MOBILE ? 14 : 34;
   const geo = new THREE.BufferGeometry();
   const pos = new Float32Array(count * 3);
   const vel = [];
@@ -1625,7 +1626,7 @@ function createRipple(sx, sy) {
 
 // ── PARTICLE BURST ───────────────────────────────────────────
 function burstParticles(sx, sy) {
-  const count = 40;
+  const count = IS_MOBILE ? 16 : 40;
   const bGeo = new THREE.BufferGeometry();
   const bPos = new Float32Array(count * 3);
   const bVel = [];
@@ -1684,8 +1685,12 @@ function burstParticles(sx, sy) {
 }
 
 // ── CLICK HANDLER ────────────────────────────────────────────
+let lastShock = 0;
 canvas.addEventListener("click", (e) => {
   startAudio();
+  const now = performance.now();
+  if (IS_MOBILE && now - lastShock < 600) return;
+  lastShock = now;
   // ✦ NEW: клик по тени → она рассыпается в математические символы
   if (hitShadowAt(e.clientX, e.clientY)) return;
   triggerShock(e.clientX, e.clientY);
@@ -1855,8 +1860,7 @@ function tick() {
   pGeo.attributes.position.needsUpdate = true;
 
   controls.update();
-  if (IS_MOBILE) renderer.render(scene, camera);
-  else composer.render();
+  composer.render();
 }
 tick();
 
